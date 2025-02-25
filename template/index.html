@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Departamentos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Reservas</h1>
+    <a href="{{ url_for('crear') }}">Nueva Reserva</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Departamento</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Falta Pagar</th>
+                <th>Medio de Pago</th>
+                <th>Fechas</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Mascota</th>
+                <th>Primera Vez</th>
+                <th>Observaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reserva in reservas %}
+            <tr>
+                <td>{{ reserva.departamento }}</td>
+                <td>{{ reserva.nombre }}</td>
+                <td>{{ reserva.precio }}</td>
+                <td>{{ reserva.falta_pagar }}</td>
+                <td>{{ reserva.medio_pago }}</td>
+                <td>{{ reserva.fecha_ingreso }} - {{ reserva.fecha_egreso }}</td>
+                <td>{{ reserva.telefono }}</td>
+                <td>{{ reserva.email }}</td>
+                <td>{{ reserva.mascota }}</td>
+                <td>{{ reserva.primera_vez }}</td>
+                <td>{{ reserva.observaciones }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
